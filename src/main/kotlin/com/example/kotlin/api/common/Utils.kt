@@ -1,5 +1,7 @@
 package com.example.kotlin.api.common
 
+import org.json.simple.JSONObject
+import org.json.simple.parser.JSONParser
 import java.lang.StringBuilder
 
 class Utils {
@@ -18,6 +20,13 @@ class Utils {
             }
 
             return urlBuilder.toString()
+        }
+
+        fun strToJson(str: String):JSONObject{
+            var parser: JSONParser = JSONParser()
+            var obj = parser.parse(str)
+
+            return obj as JSONObject
         }
     }
 }

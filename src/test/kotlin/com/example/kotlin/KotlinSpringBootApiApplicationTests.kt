@@ -7,6 +7,8 @@ import com.example.kotlin.api.bicycle.FrequentZoneBicycleCall
 import com.example.kotlin.api.bicycle.BicycleGuGun
 import com.example.kotlin.api.bicycle.BicycleSiDo
 import com.example.kotlin.api.common.Utils
+import org.json.simple.JSONObject
+import org.json.simple.parser.JSONParser
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
 
@@ -27,7 +29,10 @@ class KotlinSpringBootApiApplicationTests {
 		var url = Utils.createUrl(urlMap, FrequentZoneBicycleCall.REQUEST_URL)
 
 		println("url:: $url")
-		println(FrequentZoneBicycleCall.call(url))
+		var result = FrequentZoneBicycleCall.call(url)
+		println(result)
+
+		var jsonObj = Utils.strToJson(result)
 	}
 
 	@Test
@@ -44,6 +49,9 @@ class KotlinSpringBootApiApplicationTests {
 		var url = Utils.createUrl(urlMap, AccidentDeath.REQUEST_URL)
 
 		println("url:: $url")
-		println(FrequentZoneBicycleCall.call(url))
+		var result = AccidentDeath.call(url)
+		println(result)
+
+		var jsonObj = Utils.strToJson(result)
 	}
 }
